@@ -1,0 +1,27 @@
+<%- include ../partials/header %>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>Sobre</h2>
+        <p class="lead">Todas as séries assistidas <a href="/series/nova" class="btn btn-info">Nova Serie</a></p>
+        <table class="table table-hover">
+          <tr>
+            <th>Series</th>
+            <th>Status</th>
+          </tr>
+          <% series.forEach(serie => { %>
+          <tr>
+            <td><%= serie.name %> </td>
+            <td> <%= serie.status %></td>
+          </tr>
+          <% }) %>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include ../partials/footer.ejs %>

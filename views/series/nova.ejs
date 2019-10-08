@@ -1,0 +1,30 @@
+<%- include ../partials/header %>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>Nova Serie</h2>
+        <form action="/series/nova" method="post">
+          <div class="form-group">
+            <label for="name">Nome da série</label>
+            <input class="form-control" type="text" name="name" aria-describedby="nameHelp"
+              placeholder="Informe o nome">
+            <small id="nameHelp" class="form-text text-muted">Nome da série a ser salva</small>
+          </div>
+          <div class="form-group">
+            <label for="status">Status da série</label>
+            <select name="status" name="status" class="form-control">
+              <option value="to-watch">Para assistir</option>
+              <option value="watching">Assistindo</option>
+              <option value="watched">Assistido</option>
+            </select>
+          </div>
+          <button class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include ../partials/footer.ejs %>
