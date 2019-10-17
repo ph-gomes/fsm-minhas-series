@@ -4,12 +4,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2>Nova Serie</h2>
+        <h2>Editar Serie</h2>
         <form method="post">
           <div class="form-group">
             <label for="name">Nome da série</label>
-            <input class="form-control" type="text" name="name" aria-describedby="nameHelp"
-              placeholder="Informe o nome" />
+            <input class="form-control" type="text" name="name" aria-describedby="nameHelp" placeholder="Informe o nome"
+              value="<%=serie.name%>" />
             <small id="nameHelp" class="form-text text-muted">
               Nome da série a ser salva
             </small>
@@ -22,9 +22,10 @@
           <div class="form-group">
             <label for="status">Status da série</label>
             <select name="status" name="status" class="form-control">
-              <option value="to-watch">Para assistir</option>
-              <option value="watching">Assistindo</option>
-              <option value="watched">Assistido</option>
+              <% labels.forEach(label => { %>
+            <option value="<%= label.id%>" <% if(label.id === serie.status) { %> selected <% } %>> <%= label.name%>
+            </option>
+            <% }) %>
             </select>
           </div>
           <button class="btn btn-primary">Salvar</button>

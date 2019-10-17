@@ -5,20 +5,33 @@
     <div class="row">
       <div class="col-lg-8 mx-auto">
         <h2>Sobre</h2>
-        <p class="lead">Todas as séries assistidas <a href="/series/nova" class="btn btn-info">Nova Serie</a></p>
+        <p class="lead">
+          Todas as séries assistidas
+          <a href="/series/nova" class="btn btn-info">Nova Serie</a>
+        </p>
         <table class="table table-hover">
           <tr>
             <th>Series</th>
             <th>Status</th>
+            <th>Ações</th>
           </tr>
           <% series.forEach(serie => { %>
           <tr>
-            <td><%= serie.name %> </td>
-            <td> <%= serie.status %></td>
+            <td>
+              <a href="/series/info/<%=serie._id%>"><%= serie.name %></a>
+            </td>
+            <td>
+              <span class="badge badge-secondary">
+                <%= labels.filter( label => label.id === serie.status )[0].name %>
+              </span>
+            </td>
+            <td>
+              <a href="/series/editar/<%= serie._id %>">Editar</a> |
+              <a href="/series/excluir/<%= serie._id %>">Excluir</a>
+            </td>
           </tr>
           <% }) %>
         </table>
-
       </div>
     </div>
   </div>
